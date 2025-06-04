@@ -1,0 +1,7 @@
+{
+  "name": "appmercado",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
