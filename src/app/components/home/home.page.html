@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">home</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Categorias De Productos</ion-label>
+    </ion-list-header>
+    
+    <ion-nav-link router-direction="forward" [component]="component">
+    <ion-item *ngFor="let categoria of categorias" lines="none" (click)="verProductos(categoria)">
+      <ion-card class="producto-card">
+        <img 
+          [alt]="categoria.nombre" 
+          [src]="categoria.imagen" 
+          class="producto-imagen"
+        />
+        <ion-card-header>
+          <ion-card-title>{{ categoria.nombre }}</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </ion-item>
+    </ion-nav-link>
+  </ion-list>
+</ion-content>
+  
+</ion-content>

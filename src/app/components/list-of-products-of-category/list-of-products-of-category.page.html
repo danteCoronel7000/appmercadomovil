@@ -1,0 +1,37 @@
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>Page Two</ion-title>
+      </ion-toolbar>
+    </ion-header>
+<!-- productos.component.html -->
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Lista de Productos</ion-label>
+    </ion-list-header>
+    
+    <ion-item *ngFor="let producto of productos" lines="none">
+      <ion-card class="producto-card">
+        <img 
+          [alt]="producto.nombre" 
+          [src]="producto.imagen" 
+          class="producto-imagen"
+        />
+        <ion-card-header>
+          <ion-card-title>{{ producto.nombre }}</ion-card-title>
+          <ion-card-subtitle>{{ formatearPrecio(producto.precio) }}</ion-card-subtitle>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-button fill="outline" size="small">
+            <ion-icon name="cart-outline" slot="start"></ion-icon>
+            Agregar al Carrito
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+</ion-content>
