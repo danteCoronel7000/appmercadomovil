@@ -15,14 +15,12 @@
   <ion-grid>
     <ion-row>
       <ion-col size="6" size-md="4" *ngFor="let categoria of listCategorias">
-        <ion-nav-link router-direction="forward" [component]="component">
           <ion-card button class="categoria-card" (click)="verProductos(categoria.id, categoria.nombre)">
             <img [alt]="categoria.nombre" [src]="categoria.image?.imageUrl" class="categoria-imagen" />
             <ion-card-header>
               <ion-card-title class="ion-text-center">{{ categoria.nombre }}</ion-card-title>
             </ion-card-header>
           </ion-card>
-        </ion-nav-link>
       </ion-col>
     </ion-row>
   </ion-grid>

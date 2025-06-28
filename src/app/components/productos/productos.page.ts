@@ -5,6 +5,7 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonCol, IonCardTitle, IonC
 import { Producto } from 'src/app/models/producto.model';
 import { ProductoService } from 'src/app/services/producto.service';
 import { CategoriaService } from 'src/app/services/categoria.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { CategoriaService } from 'src/app/services/categoria.service';
   standalone: true,
   imports: [IonCardContent, IonBackButton, IonButtons, IonCard, IonCardHeader, IonCardTitle, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonCardTitle, IonCardHeader, IonCard, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonGrid, IonCol, IonRow]
 })
-export class ProductosPage implements OnInit {
+export class ProductosPage implements OnInit{
 
   listaProductos: Producto[] = [];
   nombreCategoria = '';
@@ -22,20 +23,25 @@ export class ProductosPage implements OnInit {
 
   private productosService = inject(ProductoService);
   private categoriaService = inject(CategoriaService);
-  constructor() {
+  constructor(private router: Router) {
     this.idCategoria = this.categoriaService.idCategoria();
     this.nombreCategoria = this.categoriaService.nombreCategoria();
    }
 
-  ngOnInit() {
-    this.cargarProductos();
-  }
+   ngOnInit(): void {
+     this.cargarProductos();
+   }
 
   cargarProductos() {
     this.productosService.getProductosByCategory(this.idCategoria).subscribe({
       next: (data) =>{console.log('lista de producto de una categoria: ',this.idCategoria, data),
          this.listaProductos = data}
     })
+  }
+
+  detalleAndCarrito(id: number):void{
+    this.productosService.setIdProduco(id);
+    this.router.navigate(['/detalle'])
   }
 
   // Método para formatear el precio

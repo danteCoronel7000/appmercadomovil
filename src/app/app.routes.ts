@@ -32,7 +32,12 @@ export const routes: Routes = [
         path: '',
         redirectTo: '/tabs/home',
         pathMatch: 'full',
-      },
+      }
     ]
   }
+  ,
+      {
+        path: 'detalle',
+        loadComponent: () => import('./components/detalle/detalleComponent').then(m => m.detalleComponent)
+      }
 ];

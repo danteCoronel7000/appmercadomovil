@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar color="naranja-brutalista">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ producto?.nombre }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-img [src]="producto?.imageUrl" [alt]="producto?.nombre" class="imagen-detalle"></ion-img>
+
+  <ion-card class="ion-padding">
+    <ion-card-header>
+      <ion-card-title>{{ producto?.nombre }}</ion-card-title>
+      <ion-card-subtitle>
+        {{ producto?.precio | currency:'Bs':'symbol' }} / {{ producto?.unidadMedida }}
+      </ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>{{ producto?.descripcion }}</p>
+
+      <ion-chip color="medium" *ngIf="producto?.perecedero">
+        <ion-label>Perecedero</ion-label>
+      </ion-chip>
+
+      <p *ngIf="producto?.fechaVencimiento; else noAplica" class="ion-margin-top">
+        <strong>Vence:</strong> {{ producto?.fechaVencimiento | date }}
+      </p>
+      <ng-template #noAplica>
+        <p><strong>Vence:</strong> No aplica</p>
+      </ng-template>
+
+      <p><strong>Stock disponible:</strong> {{ producto?.stockActual }}</p>
+      <p><strong>Categoría:</strong> {{ producto?.categoriaNombre }}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="light">
+    <ion-row class="ion-align-items-center ion-justify-content-between ion-padding-horizontal">
+      <ion-col size="6" class="ion-text-start">
+        <ion-buttons>
+          <ion-button fill="clear" (click)="restarCantidad()" [disabled]="cantidad <= 1">
+            <ion-icon name="remove-circle-outline"></ion-icon>
+          </ion-button>
+          <ion-label class="ion-margin-horizontal"><strong>{{ cantidad }}</strong></ion-label>
+          <ion-button fill="clear" (click)="sumarCantidad()">
+            <ion-icon name="add-circle-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-col>
+
+      <ion-col size="6" class="ion-text-end">
+        <ion-button expand="block" color="naranja-brutalista" (click)="agregarAlCarrito()">
+          Añadir al carrito
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

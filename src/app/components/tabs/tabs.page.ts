@@ -11,9 +11,9 @@ import { HomePage } from '../home/home.page';
   templateUrl: './tabs.page.html',
   styleUrls: ['./tabs.page.scss'],
   standalone: true,
-  imports: [IonTabs, IonNav, IonTabBar, IonTabButton, IonLabel, IonIcon, CommonModule, FormsModule]
+  imports: [IonTabs, IonTabBar, IonTabButton, IonLabel, IonIcon, CommonModule, FormsModule]
 })
-export class TabsPage implements OnInit {
+export class TabsPage {
 
    constructor() {
       /**
@@ -23,10 +23,4 @@ export class TabsPage implements OnInit {
        */
       addIcons({ cart, person, home });
     }
-
-  ngOnInit() {
-  }
-
-  component = HomePage;
-
 }
