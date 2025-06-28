@@ -25,8 +25,8 @@ export const routes: Routes = [
         loadComponent: () => import('./components/mi-perfil/mi-perfil.page').then(m => m.MiPerfilPage)
       },
       {
-        path: 'list-of-products-of-category',
-        loadComponent: () => import('./components/list-of-products-of-category/list-of-products-of-category.page').then(m => m.ListOfProductsOfCategoryPage)
+        path: 'productos',
+        loadComponent: () => import('./components/productos/productos.page').then(m => m.ProductosPage)
       },
       {
         path: '',

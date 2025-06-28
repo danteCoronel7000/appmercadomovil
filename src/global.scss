@@ -35,3 +35,21 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+
+.ion-color-verde-petroleo {
+  --ion-color-base: var(--ion-color-verde-petroleo);
+  --ion-color-base-rgb: var(--ion-color-verde-petroleo-rgb);
+  --ion-color-contrast: var(--ion-color-verde-petroleo-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-verde-petroleo-contrast-rgb);
+  --ion-color-shade: var(--ion-color-verde-petroleo-shade);
+  --ion-color-tint: var(--ion-color-verde-petroleo-tint);
+}
+
+.ion-color-naranja-brutalista {
+  --ion-color-base: var(--ion-color-naranja-brutalista);
+  --ion-color-base-rgb: var(--ion-color-naranja-brutalista-rgb);
+  --ion-color-contrast: var(--ion-color-naranja-brutalista-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-naranja-brutalista-contrast-rgb);
+  --ion-color-shade: var(--ion-color-naranja-brutalista-shade);
+  --ion-color-tint: var(--ion-color-naranja-brutalista-tint);
+}

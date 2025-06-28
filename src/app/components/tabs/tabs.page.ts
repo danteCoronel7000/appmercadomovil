@@ -11,7 +11,7 @@ import { HomePage } from '../home/home.page';
   templateUrl: './tabs.page.html',
   styleUrls: ['./tabs.page.scss'],
   standalone: true,
-  imports: [IonTabs, IonNav, IonTabBar, IonTabButton, IonLabel, IonIcon, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonTabs, IonNav, IonTabBar, IonTabButton, IonLabel, IonIcon, CommonModule, FormsModule]
 })
 export class TabsPage implements OnInit {
 

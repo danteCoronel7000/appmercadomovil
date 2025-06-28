@@ -1,2 +1,21 @@
 // For information on how to create your own theme, please see:
 // http://ionicframework.com/docs/theming/
+:root {
+  /* 🎨 Nuevo color personalizado */
+  --ion-color-verde-petroleo: #34675c;
+  --ion-color-verde-petroleo-rgb: 52, 103, 92;
+  --ion-color-verde-petroleo-contrast: #ffffff;
+  --ion-color-verde-petroleo-contrast-rgb: 255, 255, 255;
+  --ion-color-verde-petroleo-shade: #2e5b52;
+  --ion-color-verde-petroleo-tint: #4a7d72;
+}
+
+:root {
+  /* 🔥 Naranja Brutalista */
+  --ion-color-naranja-brutalista: #ee693f;
+  --ion-color-naranja-brutalista-rgb: 238, 105, 63;
+  --ion-color-naranja-brutalista-contrast: #ffffff;
+  --ion-color-naranja-brutalista-contrast-rgb: 255, 255, 255;
+  --ion-color-naranja-brutalista-shade: #d25c37;
+  --ion-color-naranja-brutalista-tint: #f07d56;
+}

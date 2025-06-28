@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+ion-title {
+    font-family: "Roboto Mono", monospace;
+}
+ion-card-title{
+    font-family: "Roboto Mono", monospace;
+    font-size: medium;
+}
+h2, strong, p{
+    font-family: "Roboto Mono", monospace;
+}
+.categoria-card {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+.categoria-imagen {
+  border-radius: 12px;
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+}
+
+.producto-precio {
+  margin-top: 4px;
+  font-size: 1rem;
+  color: #34675c; // opcional: tu color "verde-petroleo"
+}

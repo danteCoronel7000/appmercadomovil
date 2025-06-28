@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="naranja-brutalista">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Productos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="intro-text ion-text-center ion-margin-bottom">
+    <h2 class="ion-no-margin">Explora lo mejor en <strong>{{ nombreCategoria }}</strong></h2>
+    <p class="ion-text-wrap">Productos seleccionados especialmente para ti.</p>
+  </div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" size-sm="6" size-md="4" *ngFor="let producto of listaProductos">
+        <ion-card button class="categoria-card">
+          <img [alt]="producto.nombre" [src]="producto.imageUrl" class="categoria-imagen" />
+
+          <ion-card-header class="ion-text-center">
+            <ion-card-title class="ion-text-wrap">
+              {{ producto.nombre }}
+            </ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content class="ion-text-center">
+            <p class="producto-precio">
+              <strong><span style="margin-right: 4px;">Bs</span>{{ producto.precio | number:'1.2-2' }}</strong>
+            </p>
+            <p class="producto-precio">
+              {{ producto.unidadMedida }}
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
