@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="naranja-brutalista">
+  <ion-toolbar class="custom-header">
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
@@ -8,22 +8,29 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-  <ion-img [src]="producto?.imageUrl" [alt]="producto?.nombre" class="imagen-detalle"></ion-img>
+  <div class="img-wrapper">
+    <ion-img [src]="producto?.imageUrl" [alt]="producto?.nombre"></ion-img>
+
+    <ion-chip class="perecedero-chip" color="light">
+      <ion-label>{{ producto?.perecedero ? 'Perecedero' : 'No perecedero' }}</ion-label>
+    </ion-chip>
+  </div>
+
 
   <ion-card class="ion-padding">
     <ion-card-header>
-      <ion-card-title>{{ producto?.nombre }}</ion-card-title>
-      <ion-card-subtitle>
-        {{ producto?.precio | currency:'Bs':'symbol' }} / {{ producto?.unidadMedida }}
-      </ion-card-subtitle>
+      <div class="titulo-precio">
+        <h2>{{ producto?.nombre }}</h2>
+        <p class="custom-precio">
+          {{ producto?.precio | currency:'Bs ':'symbol' }} / {{ producto?.unidadMedida }}
+        </p>
+      </div>
     </ion-card-header>
+
+
 
     <ion-card-content>
       <p>{{ producto?.descripcion }}</p>
-
-      <ion-chip color="medium" *ngIf="producto?.perecedero">
-        <ion-label>Perecedero</ion-label>
-      </ion-chip>
 
       <p *ngIf="producto?.fechaVencimiento; else noAplica" class="ion-margin-top">
         <strong>Vence:</strong> {{ producto?.fechaVencimiento | date }}
@@ -44,11 +51,11 @@
       <ion-col size="6" class="ion-text-start">
         <ion-buttons>
           <ion-button fill="clear" (click)="restarCantidad()" [disabled]="cantidad <= 1">
-            <ion-icon name="remove-circle-outline"></ion-icon>
+            -
           </ion-button>
           <ion-label class="ion-margin-horizontal"><strong>{{ cantidad }}</strong></ion-label>
           <ion-button fill="clear" (click)="sumarCantidad()">
-            <ion-icon name="add-circle-outline"></ion-icon>
+            +
           </ion-button>
         </ion-buttons>
       </ion-col>

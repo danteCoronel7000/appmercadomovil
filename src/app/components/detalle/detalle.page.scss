@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+*{
+    font-family: "Roboto Mono", monospace;
+}
+.img-wrapper {
+    position: relative;
+
+    ion-img {
+        border-radius: 12px; // suaviza bordes
+        overflow: hidden;
+    }
+
+    .perecedero-chip {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background-color: rgba(255, 255, 255, 0.5); // semitransparente
+        font-weight: bold;
+        z-index: 10;
+    }
+
+}
+
+.titulo-precio {
+  h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  p.custom-precio {
+    margin: 4px 0 0;
+    font-size: 24px;
+    color: #666;
+  }
+}

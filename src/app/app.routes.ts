@@ -34,10 +34,9 @@ export const routes: Routes = [
         pathMatch: 'full',
       }
     ]
+  },
+  {
+    path: 'detalle',
+    loadComponent: () => import('./components/detalle/detalle.page').then( m => m.DetallePage)
   }
-  ,
-      {
-        path: 'detalle',
-        loadComponent: () => import('./components/detalle/detalleComponent').then(m => m.detalleComponent)
-      }
 ];

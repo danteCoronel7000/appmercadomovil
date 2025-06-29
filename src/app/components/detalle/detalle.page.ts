@@ -1,19 +1,21 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Producto } from 'src/app/models/producto.model';
-import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import {  IonHeader, IonTitle, IonToolbar, IonCol, IonCardTitle, IonCardHeader, IonCard, IonCardContent, IonRow, IonButtons, IonBackButton, IonImg, IonCardSubtitle, IonChip, IonLabel, IonFooter, IonButton, IonContent } from '@ionic/angular/standalone';
+import { Producto } from 'src/app/models/producto.model';
+import { ActivatedRoute } from '@angular/router';
 import { ProductoService } from 'src/app/services/producto.service';
 
 @Component({
-  selector: 'app-detalle-component',
-  templateUrl: './detalleComponent.html',
-  styleUrls: ['./detalleComponent.scss'],
+  selector: 'app-detalle',
+  templateUrl: './detalle.page.html',
+  styleUrls: ['./detalle.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule]
+  imports: [ IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, CommonModule, IonCardContent, IonBackButton, IonButtons, IonCard, IonCardHeader, IonCardTitle, IonHeader, IonTitle, IonToolbar, CommonModule, IonCardTitle, IonCardHeader, IonCard, IonHeader, IonTitle, IonToolbar, CommonModule, IonCol, IonRow, IonImg, IonCardSubtitle, IonChip, IonLabel, IonFooter, IonButton, IonContent]
 })
-export class detalleComponent {
-  productoService = inject(ProductoService);
+export class DetallePage implements OnInit {
+
+productoService = inject(ProductoService);
   producto: Producto | null = null;
   cantidad: number = 1;
 
