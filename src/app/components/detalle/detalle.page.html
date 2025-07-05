@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar class="custom-header">
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-icon name="arrow-back-outline" class="icono-grande" [routerLink]="['/tabs/productos']"></ion-icon>
     </ion-buttons>
     <ion-title>{{ producto?.nombre }}</ion-title>
   </ion-toolbar>
@@ -51,18 +51,18 @@
       <ion-col size="6" class="ion-text-start">
         <ion-buttons>
           <ion-button fill="clear" (click)="restarCantidad()" [disabled]="cantidad <= 1">
-            -
+            <ion-icon name="remove-outline"></ion-icon>
           </ion-button>
           <ion-label class="ion-margin-horizontal"><strong>{{ cantidad }}</strong></ion-label>
           <ion-button fill="clear" (click)="sumarCantidad()">
-            +
+            <ion-icon name="add-outline"></ion-icon>
           </ion-button>
         </ion-buttons>
       </ion-col>
 
       <ion-col size="6" class="ion-text-end">
         <ion-button expand="block" color="naranja-brutalista" (click)="agregarAlCarrito()">
-          Añadir al carrito
+          Agregar al Carrito
         </ion-button>
       </ion-col>
     </ion-row>

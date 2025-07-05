@@ -5,7 +5,6 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonLabel, IonListHeader, I
 import { Categoria } from 'src/app/models/categoria.model';
 import { Router } from '@angular/router';
 import { CategoriaService } from 'src/app/services/categoria.service';
-import { ProductosPage } from '../productos/productos.page';
 
 @Component({
   selector: 'app-home',
@@ -19,13 +18,11 @@ export class HomePage implements OnInit{
   listCategorias: Categoria[] = [];
   categoriaService = inject(CategoriaService);
 
-  constructor(private router: Router) {}
-
-  ngOnInit(): void {
+  constructor(private router: Router) {
     this.cargarCategorias();
   }
 
-  component = ProductosPage;
+  ngOnInit(): void {}
 
   cargarCategorias() {
     this.categoriaService.getCategory().subscribe({

@@ -10,13 +10,24 @@ h2, strong, p{
     font-family: "Roboto Mono", monospace;
 }
 .categoria-card {
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s ease-in-out;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
+    background-color: #F7EFE2;
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out;
 
-  &:hover {
-    transform: scale(1.02);
-  }
+    &:hover {
+        transform: scale(1.03);
+    }
+
+    ion-card-header {
+        padding: 0.5rem;
+    }
+
+    ion-card-title {
+        font-family: "Roboto Mono", monospace;
+        font-size: 1rem;
+        font-weight: 500;
+    }
 }
 
 .categoria-imagen {
@@ -30,4 +41,8 @@ h2, strong, p{
   margin-top: 4px;
   font-size: 1rem;
   color: #34675c; // opcional: tu color "verde-petroleo"
+}
+
+.icono-grande {
+  font-size: 28px; // o el tamaño que desee
 }

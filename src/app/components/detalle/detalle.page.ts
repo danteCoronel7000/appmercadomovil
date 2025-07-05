@@ -1,33 +1,35 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import {  IonHeader, IonTitle, IonToolbar, IonCol, IonCardTitle, IonCardHeader, IonCard, IonCardContent, IonRow, IonButtons, IonBackButton, IonImg, IonCardSubtitle, IonChip, IonLabel, IonFooter, IonButton, IonContent } from '@ionic/angular/standalone';
+import {  IonHeader, IonTitle, IonToolbar, IonCol, IonCardHeader, IonCard, IonCardContent, IonRow, IonButtons, IonBackButton, IonImg, IonChip, IonLabel, IonFooter, IonButton, IonContent, IonIcon } from '@ionic/angular/standalone';
 import { Producto } from 'src/app/models/producto.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ProductoService } from 'src/app/services/producto.service';
+import { addOutline, arrowBackOutline, removeOutline } from 'ionicons/icons';
+import { addIcons } from 'ionicons';
 
 @Component({
   selector: 'app-detalle',
   templateUrl: './detalle.page.html',
   styleUrls: ['./detalle.page.scss'],
   standalone: true,
-  imports: [ IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, CommonModule, IonCardContent, IonBackButton, IonButtons, IonCard, IonCardHeader, IonCardTitle, IonHeader, IonTitle, IonToolbar, CommonModule, IonCardTitle, IonCardHeader, IonCard, IonHeader, IonTitle, IonToolbar, CommonModule, IonCol, IonRow, IonImg, IonCardSubtitle, IonChip, IonLabel, IonFooter, IonButton, IonContent]
+  imports: [ RouterLink, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, CommonModule, IonCardContent, IonBackButton, IonButtons, IonCard, IonCardHeader, IonHeader, IonTitle, IonToolbar, CommonModule, IonCardHeader, IonCard, IonHeader, IonTitle, IonToolbar, CommonModule, IonCol, IonRow, IonImg, IonChip, IonLabel, IonFooter, IonButton, IonContent, IonIcon]
 })
 export class DetallePage implements OnInit {
 
 productoService = inject(ProductoService);
   producto: Producto | null = null;
   cantidad: number = 1;
+  idProducto: number = 0;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute) {
+    addIcons({ addOutline, removeOutline, arrowBackOutline});
+  }
 
-  ngOnInit() {
-    const navigation = history.state;
-    if (navigation && navigation.producto) {
-      this.producto = navigation.producto;
-    } else {
-      // Manejo si se accede directamente sin estado
-    }
+  ngOnInit() {}
+
+  ionViewWillEnter(){
+    this.idProducto = this.productoService.idProducto()
     this.getProductoById();
   }
 
@@ -36,7 +38,7 @@ productoService = inject(ProductoService);
   }
 
   getProductoById(){
-    this.productoService.getProductoById(this.productoService.idProducto()).subscribe({
+    this.productoService.getProductoById(this.idProducto).subscribe({
       next: (res)=>{this.producto = res, console.log('producto: ',res)}
     })
   }
