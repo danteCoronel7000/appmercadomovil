@@ -13,7 +13,7 @@ import { addIcons } from 'ionicons';
   templateUrl: './detalle.page.html',
   styleUrls: ['./detalle.page.scss'],
   standalone: true,
-  imports: [ RouterLink, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, CommonModule, IonCardContent, IonBackButton, IonButtons, IonCard, IonCardHeader, IonHeader, IonTitle, IonToolbar, CommonModule, IonCardHeader, IonCard, IonHeader, IonTitle, IonToolbar, CommonModule, IonCol, IonRow, IonImg, IonChip, IonLabel, IonFooter, IonButton, IonContent, IonIcon]
+  imports: [ RouterLink, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, CommonModule, IonCardContent, IonButtons, IonCard, IonCardHeader, IonHeader, IonTitle, IonToolbar, CommonModule, IonCardHeader, IonCard, IonHeader, IonTitle, IonToolbar, CommonModule, IonCol, IonRow, IonImg, IonChip, IonLabel, IonFooter, IonButton, IonContent, IonIcon]
 })
 export class DetallePage implements OnInit {
 

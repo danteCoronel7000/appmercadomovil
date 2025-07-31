@@ -5,6 +5,7 @@ export interface Producto {
   precio: number;
   perecedero: boolean;
   unidadMedida: string;
+  medida: string;
   stockActual: number;
   stockMin: number;
   fechaVencimiento: string; // o Date si lo vas a convertir

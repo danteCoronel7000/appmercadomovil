@@ -18,6 +18,10 @@ export class ProductoService {
     this.#idProducto.set(value);
   }
 
+  getAllProductosDto(): Observable<Producto[]>{
+    return this.httpClient.get<Producto[]>(`${this.url}/all/dto`)
+  }
+
   getProductoById(id: number): Observable<Producto>{
     return this.httpClient.get<Producto>(`${this.url}/producto/${id}`);
   }

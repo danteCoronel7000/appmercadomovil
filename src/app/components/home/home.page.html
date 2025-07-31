@@ -1,5 +1,8 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="naranja-brutalista">
+    <ion-buttons slot="start" [routerLink]="['/tabs/explorar']">
+      <ion-icon name="arrow-back-outline" class="icono-grande"></ion-icon>
+    </ion-buttons>
     <ion-title>Categorías</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -18,7 +21,7 @@
           <ion-card button class="categoria-card" (click)="verProductos(categoria.id, categoria.nombre)">
             <img [alt]="categoria.nombre" [src]="categoria.image?.imageUrl" class="categoria-imagen" />
             <ion-card-header>
-              <ion-card-title class="ion-text-center">{{ categoria.nombre }}</ion-card-title>
+              <ion-card-title class="ion-text-center nombre-categoria">{{ categoria.nombre }}</ion-card-title>
             </ion-card-header>
           </ion-card>
       </ion-col>

@@ -17,20 +17,13 @@
     <ion-row>
       <ion-col size="6" size-sm="6" size-md="4" *ngFor="let producto of listaProductos">
         <ion-card button class="categoria-card" (click)="detalleAndCarrito(producto.id)">
-          <img [alt]="producto.nombre" [src]="producto.imageUrl" class="categoria-imagen" />
-
-          <ion-card-header class="ion-text-center">
-            <ion-card-title class="ion-text-wrap">
-              {{ producto.nombre }}
-            </ion-card-title>
-          </ion-card-header>
-
+          <img [src]="producto.imageUrl" class="categoria-imagen" />
           <ion-card-content class="ion-text-center">
             <p class="producto-precio">
               <strong><span style="margin-right: 4px;">Bs</span>{{ producto.precio | number:'1.2-2' }}</strong>
             </p>
             <p class="producto-precio">
-              {{ producto.unidadMedida }}
+              {{ producto.nombre }} / {{producto.medida}}
             </p>
           </ion-card-content>
         </ion-card>

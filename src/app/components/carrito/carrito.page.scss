@@ -1,0 +1,77 @@
+/* detalle-carrito.page.scss */
+
+.cart-page {
+  .empty-cart {
+    margin-top: 50%;
+    color: #666;
+    font-size: 1.1rem;
+
+    .empty-icon {
+      font-size: 64px;
+      color: var(--ion-color-medium);
+      margin-bottom: 1rem;
+    }
+  }
+
+  ion-list {
+    .cart-item {
+      --padding-start: 0;
+      --inner-padding-end: 0;
+      margin-bottom: 0.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+
+      ion-thumbnail {
+        width: 64px;
+        height: 64px;
+        img {
+          border-radius: 8px;
+          object-fit: cover;
+        }
+      }
+
+      ion-label {
+        padding: 0 1rem;
+
+        h2 {
+          font-size: 1rem;
+          margin: 0;
+        }
+        .descr {
+          font-size: 0.85rem;
+          color: #888;
+          margin-top: 0.2rem;
+        }
+      }
+
+      .precio {
+        font-size: 0.95rem;
+        font-weight: bold;
+        color: #34675C; /* tu verde-petroleo */
+      }
+    }
+  }
+
+  /* Footer con subtotal y botón */
+  .subtotal-bar {
+    padding: 0.5rem 1rem;
+
+    .monto {
+      margin-left: 0.25rem;
+      font-size: 1rem;
+      color: var(--ion-color-naranja-brutalista);
+    }
+
+    ion-button {
+      --padding-top: 0.6rem;
+      --padding-bottom: 0.6rem;
+      font-weight: bold;
+    }
+  }
+}
+
+
+.cantidad-chip {
+  margin-top: 4px;
+  font-size: 13px;
+}

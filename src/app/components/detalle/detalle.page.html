@@ -9,7 +9,7 @@
 
 <ion-content [fullscreen]="true" class="ion-padding">
   <div class="img-wrapper">
-    <ion-img [src]="producto?.imageUrl" [alt]="producto?.nombre"></ion-img>
+    <ion-img [src]="producto?.imageUrl"></ion-img>
 
     <ion-chip class="perecedero-chip" color="light">
       <ion-label>{{ producto?.perecedero ? 'Perecedero' : 'No perecedero' }}</ion-label>
@@ -17,12 +17,12 @@
   </div>
 
 
-  <ion-card class="ion-padding">
+  <ion-card class="ion-padding"> 
     <ion-card-header>
       <div class="titulo-precio">
         <h2>{{ producto?.nombre }}</h2>
         <p class="custom-precio">
-          {{ producto?.precio | currency:'Bs ':'symbol' }} / {{ producto?.unidadMedida }}
+          {{ producto?.precio | currency:'Bs ':'symbol' }} / {{ producto?.medida }}
         </p>
       </div>
     </ion-card-header>

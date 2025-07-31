@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+ion-card {
+  margin: 0;
+  padding: 0;
+  border-radius: 0; /* opcional si querés bordes rectos */
+  box-shadow: none; /* opcional si no querés sombra */
+}
+
+ion-card-content {
+  padding: 0 !important;
+}
+
+.sticky-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgb(255, 255, 255);
+}
+
+.info-linea {
+  display: flex;
+  align-items: center;
+  gap: 0.8vw;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  height: auto;
+}
+
+
+.precio,
+.nombre {
+  margin: 0;
+  padding: 0;
+}
+
+.precio {
+  white-space: nowrap;
+  font-weight: 600;
+  color: #3880ff;
+  flex-shrink: 0;
+}
+
+.nombre {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex-grow: 1;
+}
+
+.icono-grande {
+  font-size: 28px; // o el tamaño que desee
+}
+
+.btn-categoria{
+    background-color: turquoise;
+    width: 12vh;
+    height: 6vw;
+    margin-left: 3vw;
+    border-radius: 4px;
+    color: #615F5F;
+    font-weight: bold;
+    font-family: "Roboto Mono", monospace;
+}

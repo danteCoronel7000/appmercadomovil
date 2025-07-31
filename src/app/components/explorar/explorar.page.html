@@ -1,0 +1,31 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="sticky-toolbar">
+    <ion-title>appMercado</ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar class="sticky-toolbar">
+    <ion-searchbar placeholder="Buscar productos..." animated></ion-searchbar>
+  </ion-toolbar>
+
+  <ion-toolbar class="sticky-toolbar">
+    <button class="btn-categoria" [routerLink]="['/tabs/home']">Categorias</button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" sizeMd="4" sizeLg="3" *ngFor="let producto of listaProductos">
+        <ion-card>
+          <img [src]="producto.imageUrl" alt="Imagen del producto" />
+          <ion-card-content>
+            <div class="info-linea">
+              <span class="precio">{{ producto.precio | currency:'Bs' }}</span>
+              <span class="nombre">{{ producto.nombre }}</span>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

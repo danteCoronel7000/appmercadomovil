@@ -8,6 +8,7 @@ import { CategoriaService } from 'src/app/services/categoria.service';
 import { Router, RouterLink } from '@angular/router';
 import { arrowBackOutline } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
+import { ProductoSocketService } from 'src/app/services/producto.socket.service';
 
 
 @Component({
@@ -15,7 +16,7 @@ import { addIcons } from 'ionicons';
   templateUrl: './productos.page.html',
   styleUrls: ['./productos.page.scss'],
   standalone: true,
-  imports: [RouterLink, IonCardContent, IonButtons, IonCard, IonCardHeader, IonCardTitle, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonCardTitle, IonCardHeader, IonCard, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonGrid, IonCol, IonRow, IonIcon]
+  imports: [RouterLink, IonCardContent, IonButtons, IonCard, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonCardTitle, IonCardHeader, IonCard, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonGrid, IonCol, IonRow, IonIcon]
 })
 export class ProductosPage implements OnInit {
 
@@ -25,6 +26,7 @@ export class ProductosPage implements OnInit {
 
   private productosService = inject(ProductoService);
   private categoriaService = inject(CategoriaService);
+  productoSocketService = inject(ProductoSocketService);
   constructor(private router: Router) {
     addIcons({ arrowBackOutline });
   }
@@ -36,6 +38,7 @@ export class ProductosPage implements OnInit {
     this.idCategoria = this.categoriaService.idCategoria();
     this.nombreCategoria = this.categoriaService.nombreCategoria();
     this.cargarProductos();
+    this.getNewProductByWebSocket();
   }
 
   cargarProductos() {
@@ -46,6 +49,21 @@ export class ProductosPage implements OnInit {
       }
     })
   }
+
+  getNewProductByWebSocket(): void {
+  this.productoSocketService.productoActualizado$.subscribe(producto => {
+    console.log('nuevo producto recibido', producto);
+      const index = this.listaProductos.findIndex(p => p.id === producto.id);//recorremos la lista actual de productos comparando si alngun id de la lista actual coincide con el id del nuevo producto creado
+
+    if (index !== -1) {
+      // Ya existe → lo actualizamos
+      this.listaProductos[index] = producto;
+    } else {
+      // No existe → lo agregamos al final
+      this.listaProductos.push(producto);
+    }
+  });
+}
 
   detalleAndCarrito(id: number): void {
     this.productosService.setIdProduco(id);
