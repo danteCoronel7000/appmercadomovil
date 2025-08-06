@@ -4,11 +4,11 @@
   </ion-toolbar>
 
   <ion-toolbar class="sticky-toolbar">
-    <ion-searchbar placeholder="Buscar productos..." animated></ion-searchbar>
+    <ion-searchbar #valueSearch (keyup.enter)="buscarPorNombre(valueSearch.value || '')" (ionClear)="onClearSearch()" type="text" id="table-search-users" placeholder="Buscar productos..." animated></ion-searchbar>
   </ion-toolbar>
 
   <ion-toolbar class="sticky-toolbar">
-    <button class="btn-categoria" [routerLink]="['/tabs/home']">Categorias</button>
+    <button size="small" class="btn-categoria" [routerLink]="['/tabs/home']">Categorias</button>
   </ion-toolbar>
 </ion-header>
 
@@ -16,8 +16,10 @@
   <ion-grid>
     <ion-row>
       <ion-col size="6" sizeMd="4" sizeLg="3" *ngFor="let producto of listaProductos">
-        <ion-card>
-          <img [src]="producto.imageUrl" alt="Imagen del producto" />
+        <ion-card (click)="detalleAndCarrito(producto.id)">
+          <div class="imagen-contenedor">
+            <img [src]="producto.imageUrl" alt="Imagen del producto" />
+          </div>
           <ion-card-content>
             <div class="info-linea">
               <span class="precio">{{ producto.precio | currency:'Bs' }}</span>
@@ -25,6 +27,7 @@
             </div>
           </ion-card-content>
         </ion-card>
+
       </ion-col>
     </ion-row>
   </ion-grid>

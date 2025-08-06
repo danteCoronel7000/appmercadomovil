@@ -1,10 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
 ion-card {
   margin: 0;
   padding: 0;
-  border-radius: 0; /* opcional si querés bordes rectos */
-  box-shadow: none; /* opcional si no querés sombra */
+  border-radius: 0;
+  /* opcional si querés bordes rectos */
+  box-shadow: none;
+  /* opcional si no querés sombra */
 }
+
+.imagen-contenedor {
+  width: 100%;
+  height: 26vh;
+  /* Puedes ajustar según el diseño */
+  overflow: hidden;
+}
+
+.imagen-contenedor img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 
 ion-card-content {
   padding: 0 !important;
@@ -52,13 +70,12 @@ ion-card-content {
   font-size: 28px; // o el tamaño que desee
 }
 
-.btn-categoria{
-    background-color: turquoise;
-    width: 12vh;
-    height: 6vw;
-    margin-left: 3vw;
-    border-radius: 4px;
-    color: #615F5F;
-    font-weight: bold;
-    font-family: "Roboto Mono", monospace;
-}
+.btn-categoria {
+  background-color: #52525C;
+  margin-left: 3vw;
+  padding: 4px 8px 4px 8px;
+  border-radius: 12px;
+  color: #ffffff;
+} 
+
+

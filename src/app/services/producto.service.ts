@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { computed, Injectable, signal } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Producto } from '../models/producto.model';
@@ -8,6 +8,7 @@ import { Producto } from '../models/producto.model';
 })
 export class ProductoService {
   private url = 'http://localhost:8080/api/productos/get';
+  private url_publica: string = 'http://localhost:8080/api/productos/get';
   #idProducto = signal<number>(0);
   idProducto = computed(() => this.#idProducto());
 
@@ -28,5 +29,10 @@ export class ProductoService {
 
   getProductosByCategory(id: number): Observable<Producto[]>{
     return this.httpClient.get<Producto[]>(`${this.url}/categoria/${id}`);
+  }
+
+    buscarProducto(nombre: string): Observable<Producto[]> {
+    const params = new HttpParams().set('nombre', nombre);
+    return this.httpClient.get<Producto[]>(`${this.url_publica}/buscar/app`, { params });
   }
 }

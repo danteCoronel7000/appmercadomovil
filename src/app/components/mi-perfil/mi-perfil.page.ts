@@ -9,7 +9,7 @@ import { CarritoItem } from 'src/app/models/carrito.model';
   templateUrl: './mi-perfil.page.html',
   styleUrls: ['./mi-perfil.page.scss'],
   standalone: true,
-  imports: [IonCardContent,IonCardTitle, IonCardHeader, IonCard, IonHeader, IonAvatar, IonChip, IonButton, IonRow, IonCol, IonFooter, IonGrid, IonNote, IonList, IonThumbnail, IonLabel, IonItem, IonIcon, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonCardContent,IonCardTitle, IonCardHeader, IonCard, IonHeader, IonAvatar, IonButton, IonList, IonLabel, IonItem, IonIcon, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
 })
 export class MiPerfilPage implements OnInit {
   totalProductos: number = 3;
